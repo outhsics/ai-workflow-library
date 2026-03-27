@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --vp-font-family-base: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+  --vp-font-family-heading: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --vp-c-brand-1: #0f766e;
+  --vp-c-brand-2: #115e59;
+  --vp-c-brand-3: #134e4a;
+  --vp-c-brand-soft: rgba(15, 118, 110, 0.16);
+  --vp-c-bg: #f7f6f1;
+  --vp-c-bg-soft: #f0eee4;
+  --vp-c-bg-alt: #fbfaf5;
+  --vp-c-text-1: #162218;
+  --vp-c-text-2: #45554b;
+  --vp-c-divider: rgba(22, 34, 24, 0.12);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #0f766e 0%, #14532d 48%, #b45309 100%);
+  --vp-home-hero-image-background-image:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.32), transparent 42%),
+    radial-gradient(circle at 75% 20%, rgba(180, 83, 9, 0.24), transparent 24%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.76));
+  --vp-home-hero-image-filter: blur(0px);
+  --vp-button-brand-border: #0f766e;
+  --vp-button-brand-bg: #0f766e;
+  --vp-button-brand-hover-bg: #115e59;
+  --vp-button-brand-hover-border: #115e59;
+  --vp-button-brand-active-bg: #134e4a;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(180, 83, 9, 0.08), transparent 20%),
+    var(--vp-c-bg);
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-heading);
+  letter-spacing: 0.02em;
+}
+
+.VPHero .name,
+.VPHero .text,
+h1,
+h2,
+h3,
+.VPFeature .title {
+  font-family: var(--vp-font-family-heading);
+  letter-spacing: -0.02em;
+}
+
+.VPHero {
+  padding-top: 32px !important;
+}
+
+.VPHero.has-image .container {
+  align-items: center;
+}
+
+.VPHero .image-container {
+  padding: 24px;
+}
+
+.VPHero .image-bg {
+  border-radius: 32px;
+}
+
+.VPHero .image-src {
+  max-width: 320px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.22);
+}
+
+.VPFeature {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.92)),
+    var(--vp-c-bg-alt);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+}
+
+.vp-doc a {
+  text-underline-offset: 3px;
+}
+
+.vp-doc .custom-block {
+  border-radius: 18px;
+}
+
+.landing-grid,
+.signal-grid,
+.post-grid {
+  display: grid;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.landing-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.signal-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.post-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel,
+.signal,
+.post-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+}
+
+.panel h3,
+.signal h3,
+.post-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.signal strong {
+  display: block;
+  font-family: var(--vp-font-family-heading);
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--vp-c-brand-1);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.12);
+  color: var(--vp-c-brand-2);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.tool-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.05);
+  font-size: 13px;
+}
+
+.roadmap {
+  margin: 26px 0 10px;
+  padding: 22px;
+  border-radius: 28px;
+  color: #effaf7;
+  background:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), transparent 30%),
+    linear-gradient(135deg, #083344, #14532d 55%, #1f2937);
+}
+
+.roadmap p,
+.roadmap li {
+  color: rgba(239, 250, 247, 0.9);
+}
+
+.roadmap ul {
+  padding-left: 18px;
+}
+
+@media (max-width: 960px) {
+  .landing-grid,
+  .signal-grid,
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .VPHero .image-src {
+    max-width: 260px;
+  }
+}
