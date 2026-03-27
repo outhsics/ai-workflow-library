@@ -5,9 +5,6 @@ hero:
   name: Terre Tools
   text: 我的 AI 工作台与技术库
   tagline: 记录我每天真正使用的模型、编辑器、自动化脚本、终端工具和内容工作流。
-  image:
-    src: /mark.svg
-    alt: Terre Tools
   actions:
     - theme: brand
       text: 浏览工具栈
