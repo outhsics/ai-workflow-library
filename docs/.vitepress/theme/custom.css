@@ -26,12 +26,55 @@
   --vp-button-brand-hover-bg: #115e59;
   --vp-button-brand-hover-border: #115e59;
   --vp-button-brand-active-bg: #134e4a;
+  --tt-bg-top-left: rgba(15, 118, 110, 0.08);
+  --tt-bg-bottom-right: rgba(180, 83, 9, 0.08);
+  --tt-card-border: rgba(15, 23, 42, 0.08);
+  --tt-card-bg: rgba(255, 255, 255, 0.78);
+  --tt-card-bg-strong: rgba(255, 255, 255, 0.92);
+  --tt-card-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+  --tt-kicker-bg: rgba(15, 118, 110, 0.12);
+  --tt-kicker-text: #115e59;
+  --tt-chip-bg: rgba(15, 23, 42, 0.05);
+  --tt-hero-image-border: rgba(255, 255, 255, 0.18);
+  --tt-roadmap-bg:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), transparent 30%),
+    linear-gradient(135deg, #083344, #14532d 55%, #1f2937);
+  --tt-roadmap-text: #effaf7;
+  --tt-roadmap-muted: rgba(239, 250, 247, 0.9);
+}
+
+.dark {
+  --vp-c-bg: #0b1413;
+  --vp-c-bg-soft: #101d1b;
+  --vp-c-bg-alt: #0f1a18;
+  --vp-c-text-1: #e6f3ef;
+  --vp-c-text-2: #9ab4ad;
+  --vp-c-divider: rgba(230, 243, 239, 0.12);
+  --vp-home-hero-image-background-image:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.18), transparent 42%),
+    radial-gradient(circle at 75% 20%, rgba(251, 191, 36, 0.14), transparent 24%),
+    linear-gradient(135deg, rgba(5, 12, 18, 0.98), rgba(15, 23, 42, 0.9));
+  --tt-bg-top-left: rgba(20, 184, 166, 0.12);
+  --tt-bg-bottom-right: rgba(245, 158, 11, 0.08);
+  --tt-card-border: rgba(230, 243, 239, 0.1);
+  --tt-card-bg: rgba(17, 26, 24, 0.78);
+  --tt-card-bg-strong: rgba(17, 26, 24, 0.92);
+  --tt-card-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --tt-kicker-bg: rgba(45, 212, 191, 0.14);
+  --tt-kicker-text: #7dd3c7;
+  --tt-chip-bg: rgba(230, 243, 239, 0.08);
+  --tt-hero-image-border: rgba(255, 255, 255, 0.1);
+  --tt-roadmap-bg:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 30%),
+    linear-gradient(135deg, #071413, #0c2320 55%, #111827);
+  --tt-roadmap-text: #ecfeff;
+  --tt-roadmap-muted: rgba(236, 254, 255, 0.88);
 }
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(180, 83, 9, 0.08), transparent 20%),
+    radial-gradient(circle at top left, var(--tt-bg-top-left), transparent 28%),
+    radial-gradient(circle at bottom right, var(--tt-bg-bottom-right), transparent 20%),
     var(--vp-c-bg);
 }
 
@@ -69,16 +112,16 @@ h3,
 .VPHero .image-src {
   max-width: 320px;
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--tt-hero-image-border);
   box-shadow: 0 32px 80px rgba(15, 23, 42, 0.22);
 }
 
 .VPFeature {
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--tt-card-border);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.92)),
+    linear-gradient(180deg, var(--tt-card-bg), var(--tt-card-bg-strong)),
     var(--vp-c-bg-alt);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--tt-card-shadow);
 }
 
 .vp-doc a {
@@ -112,12 +155,12 @@ h3,
 .panel,
 .signal,
 .post-card {
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--tt-card-border);
   border-radius: 24px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--tt-card-bg);
   backdrop-filter: blur(10px);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--tt-card-shadow);
 }
 
 .panel h3,
@@ -142,8 +185,8 @@ h3,
   gap: 8px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(15, 118, 110, 0.12);
-  color: var(--vp-c-brand-2);
+  background: var(--tt-kicker-bg);
+  color: var(--tt-kicker-text);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -160,7 +203,7 @@ h3,
 .tool-chip {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.05);
+  background: var(--tt-chip-bg);
   font-size: 13px;
 }
 
@@ -168,15 +211,13 @@ h3,
   margin: 26px 0 10px;
   padding: 22px;
   border-radius: 28px;
-  color: #effaf7;
-  background:
-    radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), transparent 30%),
-    linear-gradient(135deg, #083344, #14532d 55%, #1f2937);
+  color: var(--tt-roadmap-text);
+  background: var(--tt-roadmap-bg);
 }
 
 .roadmap p,
 .roadmap li {
-  color: rgba(239, 250, 247, 0.9);
+  color: var(--tt-roadmap-muted);
 }
 
 .roadmap ul {
