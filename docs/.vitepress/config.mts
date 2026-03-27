@@ -56,7 +56,12 @@ export default defineConfig({
           items: [
             { text: '博客首页', link: '/blog/' },
             { text: 'AI 编码台搭建', link: '/blog/ai-coding-desk' },
-            { text: '一条内容工作流', link: '/blog/content-loop' }
+            { text: '一条内容工作流', link: '/blog/content-loop' },
+            { text: 'Git Worktree 指南', link: '/blog/git-worktree-guide' },
+            { text: '终端工作流速查表', link: '/blog/terminal-workflow-stack' },
+            { text: 'Yazi 入门与我的配置', link: '/blog/yazi-setup' },
+            { text: 'zoxide 使用指南', link: '/blog/zoxide-guide' },
+            { text: 'Obsidian 免费同步方案', link: '/blog/obsidian-free-sync' }
           ]
         }
       ]

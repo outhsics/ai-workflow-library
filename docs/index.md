@@ -94,13 +94,21 @@ features:
 ## 最新文章入口
 
 <div class="post-grid">
+  <a class="post-card" href="/blog/git-worktree-guide">
+    <h3>Git Worktree 多分支并行开发指南</h3>
+    <p>当你同时维护主线、修复分支和验证分支时，worktree 比反复 stash / switch 稳得多。</p>
+  </a>
+  <a class="post-card" href="/blog/terminal-workflow-stack">
+    <h3>Ghostty + Yazi + Claude + Lazygit</h3>
+    <p>把终端、找目录、AI 编程和 Git 提交串成一条最顺手的日常路径。</p>
+  </a>
+  <a class="post-card" href="/blog/obsidian-free-sync">
+    <h3>Obsidian 完全免费同步方案</h3>
+    <p>用 Git 和 GitHub 做多设备同步，兼顾免费、版本控制和可迁移性。</p>
+  </a>
   <a class="post-card" href="/blog/ai-coding-desk">
     <h3>AI 编码台怎么分层</h3>
     <p>把模型、编辑器、终端、浏览器自动化拆成四层，减少“什么都能做，但什么都不稳”的问题。</p>
-  </a>
-  <a class="post-card" href="/blog/content-loop">
-    <h3>一条内容工作流如何稳定复用</h3>
-    <p>从选题、资料归档、写作、配图到发布，把重复劳动压缩成一条固定管线。</p>
   </a>
 </div>
 
