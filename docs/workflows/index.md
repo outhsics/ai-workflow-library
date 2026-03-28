@@ -23,3 +23,4 @@
 ## 推荐入口
 
 - [选题到发布](/workflows/publish-pipeline)
+- [项目级 Agent 配置模板](/workflows/agent-config-profiles)
