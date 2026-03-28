@@ -1,0 +1,44 @@
+{
+  "conservativePathPatterns": [
+    "/production/",
+    "/prod/",
+    "/backend/",
+    "/server/",
+    "/api/",
+    "/admin/",
+    "/payment/",
+    "/billing/",
+    "/auth/",
+    "/infra/"
+  ],
+  "aggressivePathPatterns": [
+    "/sandbox/",
+    "/demo/",
+    "/prototype/",
+    "/playground/",
+    "/experiments/",
+    "/lab/"
+  ],
+  "conservativeRepoPatterns": [
+    "prod",
+    "production",
+    "backend",
+    "server",
+    "api",
+    "admin",
+    "payment",
+    "billing",
+    "auth",
+    "infra",
+    "core"
+  ],
+  "aggressiveRepoPatterns": [
+    "demo",
+    "prototype",
+    "playground",
+    "sandbox",
+    "example",
+    "starter",
+    "lab"
+  ]
+}

@@ -45,6 +45,26 @@ node scripts/install-agent-config.mjs --agent claude --profile conservative --ta
 node /path/to/ai-workflow-library/scripts/install-agent-config.mjs --agent codex --profile aggressive
 ```
 
+## 自动识别模式
+
+仓库内还提供自动判断项目风格的脚本：`scripts/install-agent-config-auto.mjs`。
+
+示例：
+
+```bash
+node scripts/install-agent-config-auto.mjs --agent claude --target /path/to/project
+node scripts/install-agent-config-auto.mjs --agent codex --target /path/to/project --force
+```
+
+它会根据这些信号自动选择 `aggressive` 或 `conservative`：
+
+- 项目路径关键词
+- 仓库名和远端名关键词
+- 是否存在数据库、迁移、基础设施相关文件
+- 当前分支是否为 `main` 或 `master`
+
+如果你想给某个项目自定义规则，可以在项目根目录放 `.agent-config-rules.json`，字段格式与仓库内的 `config/agent-config-rules.json` 一致。
+
 ## 快捷命令
 
 如果你已经把这个仓库同步到本机，并把快捷脚本链接进 `~/bin`，可以直接在目标项目根目录运行：
@@ -54,6 +74,8 @@ agent-claude-aggressive
 agent-claude-conservative
 agent-codex-aggressive
 agent-codex-conservative
+agent-claude-auto
+agent-codex-auto
 ```
 
 也可以继续附加参数，例如覆盖已有文件：
