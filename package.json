@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "agent-config": "node scripts/install-agent-config.mjs"
   },
   "devDependencies": {
     "vitepress": "^2.0.0-alpha.12"

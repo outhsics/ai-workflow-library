@@ -22,6 +22,29 @@ Codex：项目根目录放 `AGENTS.md`
 - Codex 激进版：`templates/agent-configs/codex-aggressive.md`
 - Codex 保守版：`templates/agent-configs/codex-conservative.md`
 
+## 一键安装脚本
+
+仓库内提供脚本：`scripts/install-agent-config.mjs`
+
+示例：
+
+```bash
+node scripts/install-agent-config.mjs --agent claude --profile aggressive --target /path/to/project
+node scripts/install-agent-config.mjs --agent codex --profile conservative --target /path/to/project
+```
+
+如果目标项目里已经有 `CLAUDE.md` 或 `AGENTS.md`，加 `--force` 才会覆盖：
+
+```bash
+node scripts/install-agent-config.mjs --agent claude --profile conservative --target /path/to/project --force
+```
+
+如果你就在目标项目根目录，也可以省略 `--target`，直接在当前目录生成：
+
+```bash
+node /path/to/ai-workflow-library/scripts/install-agent-config.mjs --agent codex --profile aggressive
+```
+
 ## 选择建议
 
 ### 激进版适合
@@ -40,7 +63,7 @@ Codex：项目根目录放 `AGENTS.md`
 
 ## 使用方式
 
-1. 从对应模板复制内容
+1. 直接复制对应模板，或用安装脚本生成
 2. 粘贴到目标仓库根目录
 3. 文件名按平台选择：`CLAUDE.md` 或 `AGENTS.md`
 4. 重启对应 agent 或新开一个会话
