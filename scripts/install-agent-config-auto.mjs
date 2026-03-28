@@ -56,6 +56,8 @@ function readRules(targetDir) {
   }
   const projectRules = JSON.parse(fs.readFileSync(projectRulesPath, 'utf8'));
   return {
+    forcedConservativeRepos: [...(defaults.forcedConservativeRepos || []), ...(projectRules.forcedConservativeRepos || [])],
+    forcedAggressiveRepos: [...(defaults.forcedAggressiveRepos || []), ...(projectRules.forcedAggressiveRepos || [])],
     conservativePathPatterns: [...defaults.conservativePathPatterns, ...(projectRules.conservativePathPatterns || [])],
     aggressivePathPatterns: [...defaults.aggressivePathPatterns, ...(projectRules.aggressivePathPatterns || [])],
     conservativeRepoPatterns: [...defaults.conservativeRepoPatterns, ...(projectRules.conservativeRepoPatterns || [])],
@@ -89,11 +91,34 @@ function collectSignals(targetDir) {
     'pulumi',
   ];
   const presentFiles = files.filter((name) => fs.existsSync(path.join(targetDir, name)));
-  return { normalizedPath, repoName, remote, branch, presentFiles };
+  return {
+    normalizedPath,
+    repoName,
+    remote,
+    branch,
+    presentFiles,
+    repoSlug: extractRepoSlug(remote),
+  };
 }
 
 function includesAny(haystack, needles) {
   return needles.filter((needle) => haystack.includes(String(needle).toLowerCase()));
+}
+
+function extractRepoSlug(remote) {
+  if (!remote) {
+    return '';
+  }
+  const normalized = remote.replace(/\.git$/, '');
+  const sshMatch = normalized.match(/github\.com[:/]([^/]+\/[^/]+)$/);
+  if (sshMatch) {
+    return sshMatch[1].toLowerCase();
+  }
+  const httpsMatch = normalized.match(/github\.com\/([^/]+\/[^/]+)$/);
+  if (httpsMatch) {
+    return httpsMatch[1].toLowerCase();
+  }
+  return '';
 }
 
 function detectProfile(targetDir, rules) {
@@ -101,6 +126,27 @@ function detectProfile(targetDir, rules) {
   const reasons = [];
   let conservativeScore = 0;
   let aggressiveScore = 0;
+
+  const forcedConservative = (rules.forcedConservativeRepos || []).map((item) => String(item).toLowerCase());
+  const forcedAggressive = (rules.forcedAggressiveRepos || []).map((item) => String(item).toLowerCase());
+
+  if (signals.repoSlug && forcedConservative.includes(signals.repoSlug)) {
+    return {
+      profile: 'conservative',
+      reasons: [`repo slug forced conservative: ${signals.repoSlug}`],
+      conservativeScore: Number.POSITIVE_INFINITY,
+      aggressiveScore: Number.NEGATIVE_INFINITY,
+    };
+  }
+
+  if (signals.repoSlug && forcedAggressive.includes(signals.repoSlug)) {
+    return {
+      profile: 'aggressive',
+      reasons: [`repo slug forced aggressive: ${signals.repoSlug}`],
+      conservativeScore: Number.NEGATIVE_INFINITY,
+      aggressiveScore: Number.POSITIVE_INFINITY,
+    };
+  }
 
   for (const match of includesAny(signals.normalizedPath, rules.conservativePathPatterns)) {
     conservativeScore += 2;

@@ -58,12 +58,33 @@ node scripts/install-agent-config-auto.mjs --agent codex --target /path/to/proje
 
 它会根据这些信号自动选择 `aggressive` 或 `conservative`：
 
+- GitHub 仓库白名单或黑名单
 - 项目路径关键词
 - 仓库名和远端名关键词
 - 是否存在数据库、迁移、基础设施相关文件
 - 当前分支是否为 `main` 或 `master`
 
 如果你想给某个项目自定义规则，可以在项目根目录放 `.agent-config-rules.json`，字段格式与仓库内的 `config/agent-config-rules.json` 一致。
+
+其中优先级最高的是：
+
+- `forcedConservativeRepos`
+- `forcedAggressiveRepos`
+
+这两个字段写 GitHub 仓库 slug，例如：
+
+```json
+{
+  "forcedConservativeRepos": [
+    "yourname/payments-api",
+    "yourname/admin-core"
+  ],
+  "forcedAggressiveRepos": [
+    "yourname/demo-site",
+    "yourname/playground"
+  ]
+}
+```
 
 ## 快捷命令
 

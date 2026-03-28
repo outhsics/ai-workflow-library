@@ -1,4 +1,10 @@
 {
+  "forcedConservativeRepos": [
+    "outhsics/supportlane-lite"
+  ],
+  "forcedAggressiveRepos": [
+    "outhsics/ai-workflow-library"
+  ],
   "conservativePathPatterns": [
     "/production/",
     "/prod/",
