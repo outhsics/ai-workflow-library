@@ -45,6 +45,23 @@ node scripts/install-agent-config.mjs --agent claude --profile conservative --ta
 node /path/to/ai-workflow-library/scripts/install-agent-config.mjs --agent codex --profile aggressive
 ```
 
+## 快捷命令
+
+如果你已经把这个仓库同步到本机，并把快捷脚本链接进 `~/bin`，可以直接在目标项目根目录运行：
+
+```bash
+agent-claude-aggressive
+agent-claude-conservative
+agent-codex-aggressive
+agent-codex-conservative
+```
+
+也可以继续附加参数，例如覆盖已有文件：
+
+```bash
+agent-codex-conservative --force
+```
+
 ## 选择建议
 
 ### 激进版适合

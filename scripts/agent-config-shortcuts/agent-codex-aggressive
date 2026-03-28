@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  case "$SOURCE" in
+    /*) ;;
+    *) SOURCE="$DIR/$SOURCE" ;;
+  esac
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
+case "$(basename "$0")" in
+  agent-claude-aggressive) exec node "$SCRIPT_DIR/install-agent-config.mjs" --agent claude --profile aggressive "$@" ;;
+  agent-claude-conservative) exec node "$SCRIPT_DIR/install-agent-config.mjs" --agent claude --profile conservative "$@" ;;
+  agent-codex-aggressive) exec node "$SCRIPT_DIR/install-agent-config.mjs" --agent codex --profile aggressive "$@" ;;
+  agent-codex-conservative) exec node "$SCRIPT_DIR/install-agent-config.mjs" --agent codex --profile conservative "$@" ;;
+  *) echo "Unknown shortcut name: $(basename "$0")" >&2; exit 1 ;;
+esac
